@@ -21,5 +21,8 @@ map("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
 map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move block down" })
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move block up" })
 
+-- Paste with Ctrl+v in normal & insert modes
+vim.keymap.set("i", "<C-v>", '<C-r>+', { noremap = true, silent = true })
+-- vim.keymap.set("n", "<C-v>", '"+p', { noremap = true, silent = true }) -- its taken by blockWise visual mode
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
