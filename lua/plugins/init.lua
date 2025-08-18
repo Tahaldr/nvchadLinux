@@ -12,6 +12,20 @@ return {
     end,
   },
 
+  -- plug-in which provides support for expanding abbreviations similar to emmet.
+  {
+    "mattn/emmet-vim",
+    ft = {
+      "html",
+      "javascript",
+      "javascriptreact",
+      "less",
+      "sass",
+      "scss",
+      "typescriptreact",
+    }, -- enable for these filetypes
+  },
+
   -- Vim syntax highlighting for Blade templates (Laravel 4+).
   {
     "jwalton512/vim-blade",
