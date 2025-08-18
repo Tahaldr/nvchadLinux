@@ -26,3 +26,6 @@ vim.keymap.set("i", "<C-v>", '<C-r>+', { noremap = true, silent = true })
 -- vim.keymap.set("n", "<C-v>", '"+p', { noremap = true, silent = true }) -- its taken by blockWise visual mode
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+-- Open diagnostic float on current line
+map("n", "gl", vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Show line diagnostics" })
