@@ -13,6 +13,7 @@ return {
   },
 
   -- plug-in which provides support for expanding abbreviations similar to emmet.
+  -- action key : <C-y> + ,
   {
     "mattn/emmet-vim",
     ft = {
