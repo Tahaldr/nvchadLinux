@@ -1,22 +1,18 @@
 return {
-  config = {
-    commands = {
-      history = {
-        view = "popup",
-      },
-    },
-    presets = {
-      command_palette = true,
-    },
-    lsp = {
-      hover = {
-        enabled = false,
-      },
-      signature = {
-        enabled = false,
-      },
+  commands = {
+    history = {
+      view = "popup",
     },
   },
-  event = "VeryLazy",
-  opts = {},
+  presets = {
+    command_palette = true,
+  },
+  lsp = {
+    hover = {
+      enabled = false,
+    },
+    signature = {
+      enabled = false,
+    },
+  },
 }
