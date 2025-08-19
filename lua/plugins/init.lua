@@ -16,40 +16,7 @@ return {
   -- to help you solve all the trouble your code is causing.
   {
     "folke/trouble.nvim",
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
-    cmd = "Trouble",
-    keys = {
-      {
-        "<leader>tx",
-        "<cmd>Trouble diagnostics toggle<cr>",
-        desc = "Diagnostics (Trouble)",
-      },
-      {
-        "<leader>tX",
-        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-        desc = "Buffer Diagnostics (Trouble)",
-      },
-      {
-        "<leader>ts",
-        "<cmd>Trouble symbols toggle focus=false<cr>",
-        desc = "Symbols (Trouble)",
-      },
-      {
-        "<leader>tl",
-        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-        desc = "LSP Definitions / references / ... (Trouble)",
-      },
-      {
-        "<leader>tL",
-        "<cmd>Trouble loclist toggle<cr>",
-        desc = "Location List (Trouble)",
-      },
-      {
-        "<leader>tQ",
-        "<cmd>Trouble qflist toggle<cr>",
-        desc = "Quickfix List (Trouble)",
-      },
-    },
+    require "configs.trouble",
   },
 
   -- plug-in which provides support for expanding abbreviations similar to emmet.
@@ -80,28 +47,17 @@ return {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
     },
-    keys = {
-      { "<leader>la", ":Artisan<cr>", desc = "Laravel Artisan" },
-      { "<leader>lc", ":Composer<cr>", desc = "Composer" },
-      { "<leader>lr", ":LaravelRoute<cr>", desc = "Laravel Routes" },
-      { "<leader>lm", ":LaravelMake<cr>", desc = "Laravel Make" },
-    },
-    config = function()
-      require("laravel").setup()
-    end,
+    require "configs.laravel",
   },
 
   -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
   {
     "folke/noice.nvim",
-    config = require "configs.noice",
-    event = "VeryLazy",
-    opts = {},
-
     dependencies = {
       "MunifTanjim/nui.nvim",
       -- "rcarriga/nvim-notify",
     },
+    require "configs.noice",
   },
 
   -- For autoSave
@@ -130,16 +86,7 @@ return {
   -- and Treesitter integration.
   {
     "folke/flash.nvim",
-    event = "VeryLazy",
-    opts = {},
-    -- stylua: ignore
-    keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search"},
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    },
+    require "configs.flash",
   },
 
   -- test new blink
@@ -147,34 +94,6 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "blade",
-        "css",
-        "csv",
-        "dockerfile",
-        "gitignore",
-        "html",
-        "http",
-        "java",
-        "javascript",
-        "json",
-        "lua",
-        "luadoc",
-        "php",
-        "powershell",
-        "printf",
-        "python",
-        "scss",
-        "sql",
-        "tsx",
-        "typescript",
-        "vim",
-        "vimdoc",
-        "xml",
-        "yaml",
-      },
-    },
+    require "configs.treesitter",
   },
 }
