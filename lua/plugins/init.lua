@@ -4,6 +4,32 @@ return {
     opts = require "configs.conform",
   },
 
+  -- Markdown preview in Browser
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && npm install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+    enabled = false,
+  },
+
+  -- Markdown preview in Terminal (better)
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown" },
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" },
+    config = function()
+      require("render-markdown").setup {
+        enabled = true,
+        file_types = { "markdown" },
+        -- you can add more config keys here as desired
+      }
+    end,
+  },
+
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
