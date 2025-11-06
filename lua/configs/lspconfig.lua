@@ -12,6 +12,7 @@ local servers = {
   dockerls = {},
   eslint = {},
   html = {},
+  twig = {},
   intelephense = {},
   jdtls = {},
   jsonls = {},
@@ -26,19 +27,19 @@ local servers = {
   },
   phpactor = {},
   pyright = {},
-  quick_lint_js = {},
   stimulus_ls = {},
   tailwindcss = {},
-  ts_ls = {
-    on_attach = function(client, bufnr)
-      -- Disable diagnostics for this LSP manually
-      client.handlers["textDocument/publishDiagnostics"] = function() end
-
-      -- Call the shared on_attach to keep other features
-      on_attach(client, bufnr)
-    end,
-  },
-  vtsls = {},
+  ts_ls = {},
+  -- ts_ls = {
+  --   on_attach = function(client, bufnr)
+  --     -- Disable diagnostics for this LSP manually
+  --     client.handlers["textDocument/publishDiagnostics"] = function() end
+  --
+  --     -- Call the shared on_attach to keep other features
+  --     on_attach(client, bufnr)
+  --   end,
+  -- },
+  -- vtsls = {},
   yamlls = {},
   emmet_ls = {
     init_options = {
@@ -56,6 +57,7 @@ local servers = {
     filetypes = {
       "css",
       "html",
+      "twig",
       "javascript",
       "javascriptreact",
       "less",
