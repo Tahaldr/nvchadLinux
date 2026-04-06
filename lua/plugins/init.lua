@@ -98,8 +98,8 @@ return {
   -- Break bad habits, master Vim motions
   {
     "m4xshen/hardtime.nvim",
-    lazy = false,
-    enabled = false,
+    lazy = true,
+    enabled = true,
     opts = {},
 
     dependencies = { "MunifTanjim/nui.nvim" },

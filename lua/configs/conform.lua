@@ -4,6 +4,7 @@ local options = {
   formatters_by_ft = {
     -- Frontend
     html = { front_end_fmt },
+    twig = { front_end_fmt },
     css = { front_end_fmt },
     scss = { front_end_fmt },
     less = { front_end_fmt },
@@ -35,4 +36,3 @@ local options = {
 }
 
 return options
-
