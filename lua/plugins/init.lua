@@ -122,6 +122,12 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "master",
+    lazy = false,
+    build = ":TSUpdate",
     opts = require("configs.ts").opts,
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
   },
 }
