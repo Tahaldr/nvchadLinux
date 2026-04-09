@@ -6,16 +6,18 @@ local capabilities = nvlsp.capabilities
 nvlsp.defaults()
 
 local servers = {
+  biome = {},
   cssls = {},
   css_variables = {},
   docker_compose_language_service = {},
   dockerls = {},
   eslint = {},
   html = {},
-  twig = {},
+  -- twig = {},
   intelephense = {},
   jdtls = {},
   jsonls = {},
+  jsonld_ls = {},
   lua_ls = {
     settings = {
       Lua = {
@@ -27,9 +29,10 @@ local servers = {
   },
   phpactor = {},
   pyright = {},
+  quick_lint_js = {},
   stimulus_ls = {},
   tailwindcss = {},
-  ts_ls = {},
+  -- ts_ls = {},
   -- ts_ls = {
   --   on_attach = function(client, bufnr)
   --     -- Disable diagnostics for this LSP manually
@@ -39,7 +42,7 @@ local servers = {
   --     on_attach(client, bufnr)
   --   end,
   -- },
-  -- vtsls = {},
+  vtsls = {},
   yamlls = {},
   emmet_ls = {
     init_options = {
