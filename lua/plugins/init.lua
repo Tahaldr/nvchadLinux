@@ -75,13 +75,27 @@ return {
   -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
   {
     "folke/noice.nvim",
-    config = require "configs.noice",
     event = "VeryLazy",
-    opts = {},
+    opts = require "configs.noice",
 
     dependencies = {
       "MunifTanjim/nui.nvim",
-      -- "rcarriga/nvim-notify",
+      { "rcarriga/nvim-notify", opts = { timeout = 2000 } },
+    },
+  },
+
+  -- Lspsaga: richer LSP UI (peek definition, file outline)
+  -- Use: gp = peek definition in a popup, <leader>o = outline of the file
+  {
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      lightbulb = { enable = false },
+      symbol_in_winbar = { enable = false },
     },
   },
 
@@ -122,12 +136,19 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
+    branch = "main",
     lazy = false,
     build = ":TSUpdate",
-    opts = require("configs.ts").opts,
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
+    config = function()
+      local opts = require("configs.ts").opts or {}
+      if opts.ensure_installed then
+        require("nvim-treesitter").install(opts.ensure_installed)
+      end
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+          pcall(vim.treesitter.start, args.buf)
+        end,
+      })
     end,
   },
 }

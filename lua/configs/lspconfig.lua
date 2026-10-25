@@ -29,7 +29,7 @@ local servers = {
   },
   phpactor = {},
   pyright = {},
-  quick_lint_js = {},
+  -- quick_lint_js = {},
   stimulus_ls = {},
   tailwindcss = {},
   -- ts_ls = {},
@@ -42,7 +42,30 @@ local servers = {
   --     on_attach(client, bufnr)
   --   end,
   -- },
-  vtsls = {},
+  vtsls = {
+    settings = {
+      typescript = {
+        inlayHints = {
+          parameterNames = { enabled = "literals" },
+          parameterTypes = { enabled = true },
+          variableTypes = { enabled = true },
+          propertyDeclarationTypes = { enabled = true },
+          functionLikeReturnTypes = { enabled = true },
+          enumMemberValues = { enabled = true },
+        },
+      },
+      javascript = {
+        inlayHints = {
+          parameterNames = { enabled = "literals" },
+          parameterTypes = { enabled = true },
+          variableTypes = { enabled = true },
+          propertyDeclarationTypes = { enabled = true },
+          functionLikeReturnTypes = { enabled = true },
+          enumMemberValues = { enabled = true },
+        },
+      },
+    },
+  },
   yamlls = {},
   emmet_ls = {
     init_options = {

@@ -29,3 +29,11 @@ vim.keymap.set("i", "<C-v>", '<C-r>+', { noremap = true, silent = true })
 
 -- Open diagnostic float on current line
 map("n", "gl", vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Show line diagnostics" })
+
+-- Esc: clear search highlight + dismiss notifications
+map("n", "<Esc>", "<cmd>noh<CR><cmd>Noice dismiss<CR>", { desc = "Clear highlight & dismiss notifications" })
+
+
+-- Lspsaga
+map("n", "gp", "<cmd>Lspsaga peek_definition<CR>", { desc = "Peek definition" })
+map("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { desc = "File outline" })
